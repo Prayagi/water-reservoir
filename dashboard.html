@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Water Demand Forecasting & Reservoir Storage Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <h1>Smart Water Demand Forecasting & Reservoir Storage Management</h1>
+            <p>Real-time Analytics & Predictive Dashboard for Madhya Pradesh Water Resources</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#forecasts">Forecasts</a></li>
+                    <li><a href="#reservoirs">Reservoirs</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#reports">Reports</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div id="dashboard" class="content-section">
+                <div class="content-wrapper">
+                <!-- Scenario Selector -->
+                <div class="scenario-selector">
+                    <div class="form-group">
+                        <label for="targetYear">Forecast Year</label>
+                        <select id="targetYear">
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026" selected>2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2030">2030</option>
+                            <option value="2035">2035</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="scenarioType">Scenario Type</label>
+                        <select id="scenarioType">
+                            <option value="baseline" selected>Baseline</option>
+                            <option value="optimistic">Optimistic (Low Growth)</option>
+                            <option value="pessimistic">Pessimistic (High Growth)</option>
+                            <option value="climate">Climate Impact</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region">Region/District</label>
+                        <select id="region">
+                            <option value="all" selected>All Regions</option>
+                            <option value="indore">Indore</option>
+                            <option value="bhopal">Bhopal</option>
+                            <option value="jabalpur">Jabalpur</option>
+                            <option value="gwalior">Gwalior</option>
+                        </select>
+                    </div>
+
+                    <button class="btn">Run Forecast</button>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card">
+                        <div class="card-label">Forecast Year</div>
+                        <div class="card-value">2026</div>
+                        <div class="card-unit">Selected Period</div>
+                        <div class="card-change">Updated: Today</div>
+                    </div>
+
+                    <div class="card water-themed">
+                        <div class="card-label">Total Water Demand</div>
+                        <div class="card-value">45.8</div>
+                        <div class="card-unit">Billion Cubic Meters (BCM)</div>
+                        <div class="card-change positive">↑ 3.5% from 2025</div>
+                    </div>
+
+                    <div class="card water-themed">
+                        <div class="card-label">Available Storage</div>
+                        <div class="card-value">38.2</div>
+                        <div class="card-unit">Billion Cubic Meters (BCM)</div>
+                        <div class="card-change negative">↓ 2.1% (Seasonal)</div>
+                    </div>
+
+                    <div class="card water-themed">
+                        <div class="card-label">Deficit/Surplus</div>
+                        <div class="card-value">-7.6</div>
+                        <div class="card-unit">Billion Cubic Meters (BCM)</div>
+                        <div class="card-change negative">DEFICIT</div>
+                    </div>
+
+                    <div class="card risk-medium">
+                        <div class="card-label">Risk Level</div>
+                        <div class="card-value">MEDIUM</div>
+                        <div class="card-unit">Current Status</div>
+                        <div class="card-change">Requires Monitoring</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section 
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3 class="chart-title">Water Demand Forecast (2020-2030)</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="demandChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3 class="chart-title">Storage vs Annual Demand</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="storageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+-->
+                <!-- Sector-wise Demand Pie Chart 
+                <div class="three-column">
+                    <div class="chart-container">
+                        <h3 class="chart-title">Sector-wise Water Demand</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="sectorChart"></canvas>
+                        </div>
+                    </div>
+-->
+                    <!-- Alert Section 
+                    <div class="alert-section">
+                        <h3 class="alert-title">⚠️ Risk Alerts</h3>
+                        <ul class="alert-list">
+                            <li class="alert-item">
+                                <strong>Indira Sagar:</strong> Storage approaching 30% capacity (Critical threshold)
+                            </li>
+                            <li class="alert-item">
+                                <strong>Drought Risk:</strong> Below average monsoon precipitation Expected (80% probability)
+                            </li>
+                            <li class="alert-item">
+                                <strong>Demand Surge:</strong> 15% increase in irrigation demand during March-May season
+                            </li>
+                            <li class="alert-item">
+                                <strong>Urban Growth:</strong> Bhopal water demand increasing 4.5% annually
+                            </li>
+                        </ul>
+                    </div>
+-->
+                    <!-- Recommendations Section 
+                    <div class="recommendations-section">
+                        <h3 class="recommendations-title">✓ Recommendations</h3>
+                        <ul class="recommendations-list">
+                            <li class="recommendation-item">
+                                <strong>Implement water rationing</strong> in non-essential sectors to conserve resources
+                            </li>
+                            <li class="recommendation-item">
+                                <strong>Accelerate recharge projects</strong> to improve groundwater levels before dry season
+                            </li>
+                            <li class="recommendation-item">
+                                <strong>Prioritize agriculture irrigation</strong> efficiency through drip irrigation subsidies
+                            </li>
+                            <li class="recommendation-item">
+                                <strong>Advance water treatment plants</strong> to reduce demand pressure on raw water sources
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+-->
+                <!-- Reservoir Status Table -->
+                <div class="table-container">
+                    <h3 class="table-title">Reservoir Status - Major Dams of Madhya Pradesh</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reservoir Name</th>
+                                <th>Current Level (m)</th>
+                                <th>Current Storage (MCM)</th>
+                                <th>Capacity (MCM)</th>
+                                <th>Storage %</th>
+                                <th>Inflow (cumec)</th>
+                                <th>Outflow (cumec)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Indira Sagar</strong></td>
+                                <td>64.2</td>
+                                <td>18,545</td>
+                                <td>58,600</td>
+                                <td>31.6%</td>
+                                <td>245</td>
+                                <td>380</td>
+                                <td><span class="status-badge status-warning">Low</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bargi</strong></td>
+                                <td>58.8</td>
+                                <td>8,724</td>
+                                <td>14,100</td>
+                                <td>61.8%</td>
+                                <td>185</td>
+                                <td>210</td>
+                                <td><span class="status-badge status-normal">Normal</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gandhi Sagar</strong></td>
+                                <td>57.5</td>
+                                <td>6,358</td>
+                                <td>11,200</td>
+                                <td>56.8%</td>
+                                <td>156</td>
+                                <td>175</td>
+                                <td><span class="status-badge status-normal">Normal</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Narmada Valley</strong></td>
+                                <td>62.1</td>
+                                <td>22,180</td>
+                                <td>45,800</td>
+                                <td>48.4%</td>
+                                <td>312</td>
+                                <td>290</td>
+                                <td><span class="status-badge status-normal">Normal</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tawa Reservoir</strong></td>
+                                <td>55.2</td>
+                                <td>3,215</td>
+                                <td>7,265</td>
+                                <td>44.3%</td>
+                                <td>98</td>
+                                <td>125</td>
+                                <td><span class="status-badge status-warning">Low</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Forecasts Section 
+            <div id="forecasts" class="content-section">
+                <div class="content-wrapper">
+                    <div style="padding: 3rem 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, #0066cc 0%, #00a86b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Forecast Analysis & Predictions</h2>
+                        <div class="chart-container" style="margin-bottom: 2rem;">
+                            <h3 class="chart-title">Detailed Forecast Results (2026)</h3>
+                            <div style="padding: 2rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f5f0 100%); border-radius: 10px; text-align: center;">
+                                <p style="color: #0066cc; font-size: 1.1rem; margin-bottom: 1rem;">📊 Advanced forecast models showing water demand projections across different sectors</p>
+                                <p style="color: #666;">Agricultural Demand • Urban Growth • Industrial Requirements • Seasonal Variations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+            <!-- Reservoirs Section 
+            <div id="reservoirs" class="content-section">
+                <div class="content-wrapper">
+                    <div style="padding: 3rem 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, #0066cc 0%, #00a86b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Reservoir Management & Status</h2>
+                        <div class="chart-container" style="margin-bottom: 2rem;">
+                            <h3 class="chart-title">Real-time Reservoir Monitoring</h3>
+                            <div style="padding: 2rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f5f0 100%); border-radius: 10px; text-align: center;">
+                                <p style="color: #00a86b; font-size: 1.1rem; margin-bottom: 1rem;">💧 Live monitoring of all major reservoirs in Madhya Pradesh</p>
+                                <p style="color: #666;">Storage Levels • Water Quality • Discharge Rates • Capacity Utilization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+            <!-- Analytics Section 
+            <div id="analytics" class="content-section">
+                <div class="content-wrapper">
+                    <div style="padding: 3rem 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, #0066cc 0%, #00a86b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Advanced Analytics & Insights</h2>
+                        <div class="chart-container" style="margin-bottom: 2rem;">
+                            <h3 class="chart-title">Data-Driven Insights</h3>
+                            <div style="padding: 2rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f5f0 100%); border-radius: 10px; text-align: center;">
+                                <p style="color: #0066cc; font-size: 1.1rem; margin-bottom: 1rem;">📈 Comprehensive analytics dashboard with historical trends and predictive models</p>
+                                <p style="color: #666;">Trend Analysis • Pattern Recognition • Anomaly Detection • Performance Metrics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+            <!-- Reports Section 
+            <div id="reports" class="content-section">
+                <div class="content-wrapper">
+                    <div style="padding: 3rem 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, #0066cc 0%, #00a86b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Reports & Documentation</h2>
+                        <div class="chart-container" style="margin-bottom: 2rem;">
+                            <h3 class="chart-title">Generated Reports</h3>
+                            <div style="padding: 2rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f5f0 100%); border-radius: 10px; text-align: center;">
+                                <p style="color: #00a86b; font-size: 1.1rem; margin-bottom: 1rem;">📋 Archive of generated reports, analyses, and documentation</p>
+                                <p style="color: #666;">Annual Reports • Quarterly Summaries • Technical Documentation • Executive Briefs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+            <!-- Settings Section 
+            <div id="settings" class="content-section">
+                <div class="content-wrapper">
+                    <div style="padding: 3rem 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, #0066cc 0%, #00a86b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">System Settings & Configuration</h2>
+                        <div class="chart-container" style="margin-bottom: 2rem;">
+                            <h3 class="chart-title">Configuration Options</h3>
+                            <div style="padding: 2rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f5f0 100%); border-radius: 10px; text-align: center;">
+                                <p style="color: #0066cc; font-size: 1.1rem; margin-bottom: 1rem;">⚙️ Customize system parameters and user preferences</p>
+                                <p style="color: #666;">User Preferences • Model Parameters • Notification Settings • Data Sources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Data Source</h4>
+                <p>Central Water Commission (CWC), Madhya Pradesh Water Resources Department</p>
+            </div>
+            <div class="footer-section">
+                <h4>Last Updated</h4>
+                <p>March 24, 2026 • 15:45 IST</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>MP Water Resources: contact@water.mp.gov.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Smart Water Demand Forecasting System. Minor PRoject by: Prayagi Sahajwani, Sheetal Narwariya, Sanskrati Kachole, Sejal Soni</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
