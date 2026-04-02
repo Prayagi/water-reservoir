@@ -330,4 +330,13 @@ function formatRegion(value) {
     return regions[value] || value;
 }
 
+// Smooth scroll behavior
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== '#dashboard') {
+            e.preventDefault();
+        }
+    });
+});
 
